@@ -22,6 +22,7 @@ public class CharTree {
 
     public void insert(String word){
         Node current = root;
+        word = word.toLowerCase();
 
         for(char c : word.toCharArray()){
             current.children.putIfAbsent(c, new Node());
@@ -36,6 +37,7 @@ public class CharTree {
         if(query.isEmpty())
             return words;
 
+        query = query.toLowerCase();
         Node current = startNode(query);
 
         if(current != null)
